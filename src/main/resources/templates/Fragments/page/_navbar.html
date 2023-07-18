@@ -1,0 +1,33 @@
+<div th:fragment="header">
+    <div class="my-3 mx-auto  px-5">
+        <img th:src="@{/dist/img/logo.jpg}" width="200" alt="logo"/>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light navcolor">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul  class="navbar-nav mx-auto gap-3 mb-2 mb-lg-0">
+                    <li  class="nav-item">
+                        <a class="nav-link active font-semibold text-sm" aria-current="page" href="/">TRANG CHỦ</a>
+                    </li>
+                    <li th:each="classes : ${classes}" class="nav-item">
+                        <a class="nav-link font-semibold text-sm text-uppercase" th:href="@{/{urlsClass}(urlsClass=${classes.url})}"  th:text="${classes.classname}"></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link font-semibold text-sm" href="/lop-1">VĂN BẢN PHÁP LUẬT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-semibold text-sm" href="/lop-1">BIỂU MẪU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-semibold text-sm" href="/lop-1">NGÀY LỄ TẾT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</div>

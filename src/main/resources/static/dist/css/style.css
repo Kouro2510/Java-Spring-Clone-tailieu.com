@@ -1,0 +1,131 @@
+.navcolor{
+    background: #2c6ab1;
+}
+a{
+    text-decoration: none;
+}
+ul li {
+    list-style-type: none;
+
+}
+.nav-link{
+    color: white!important;
+}
+.nav-link:focus, .nav-link:hover {
+    color: white!important;
+    background: #f06622!important;
+}
+.font-semibold {
+    font-weight: 600;
+}
+.text-sm {
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+.pl-0{
+    padding-left: 0;
+}
+.tag{
+    width: 40px;
+    text-align: center;
+    height: 40px;
+    font-size: 16px;
+    top: 5px;
+    left: -5px;
+    border-top-right-radius: .375rem;
+    border-bottom-right-radius: .375rem;
+}
+.font-20px{
+    font-size: 20px;
+}
+.height-50px{
+    height: 50px;
+}
+.text-gray{
+    color: grey;
+}
+.fw-500{
+    font-weight: 500;
+}
+.border-color{
+    border-width: 1px;
+}
+
+.bg-color-1 {
+    background-color: #ef5350 !important;
+}
+
+.bg-color-2 {
+    background-color: #ec407a !important;
+}
+
+.bg-color-3 {
+    background-color: #ab47bc !important;
+}
+
+.bg-color-4 {
+    background-color: #7e57c2 !important;
+}
+
+
+.bg-color-5 {
+    background-color: #5c6bc0 !important;
+}
+
+
+.bg-color-6 {
+    background-color: #42a5f5 !important;
+}
+
+
+.bg-color-7 {
+    background-color: #29b6f6 !important;
+}
+
+
+.bg-color-8 {
+    background-color: #26c6da !important;
+}
+
+
+.bg-color-9 {
+    background-color: #26a69a !important;
+}
+
+
+.bg-color-10 {
+    background-color: #66bb6a !important;
+}
+
+
+.bg-color-11 {
+    background-color: #9ccc65 !important;
+}
+
+
+.bg-color-12 {
+    background-color: #d4e157 !important;
+}
+.nav-change form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-change button {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-change button {
+    text-decoration: none;
+}
+.deatailslesson {
+    width: 244px;
+    text-align: start;
+}
+

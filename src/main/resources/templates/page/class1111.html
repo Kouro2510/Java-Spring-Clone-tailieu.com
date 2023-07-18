@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${lessonName}">Title</title>
+    <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/dist/css/style.css}">
+    <link rel="stylesheet" th:href="@{/dist/css/class1.css}">
+    <link th:href="@{https://getbootstrap.com/docs/5.3/assets/css/docs.css}" rel="stylesheet">
+    <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js}"></script>
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css}">
+</head>
+<body>
+<div th:replace="Fragments/page/_navbar.html :: header"></div>
+<section class="container-md">
+    <div class="d-flex flex-row  mt-3 w-100">
+        <a href="/"><i class="bi bi-house-fill"></i></a>
+        <span style="color:#F06622;" class="mx-2"> > </span><a href="/" th:text="${className}" > </a>
+        <span style="color:#F06622;" class="mx-2"> > </span><a href="/lop-1/danh-muc-bai-hoc" th:text="${subjectName}"></a>
+        <span style="color:#F06622;" class="mx-2"> > </span><a href="/lop-1/giai-bai-tap"  th:text="${ingredientsName}"></a>
+        <span style="color:#F06622;" class="mx-2"> > </span><a href="/lop-1/giai-bai-tap" style="color:#F06622;" th:text="${lessonName}"></a>
+    </div>
+
+    <div class="row">
+        <div class="col-3 ">
+           <div class="nav-toan">
+               <div >
+                   <p class=" content-right text-blue" th:text="${ingredientsName}"></p>
+               </div>
+               <div class="content-right-dow">
+                   <div class="col-sm-12" th:each="chapterEntity : ${chapterEntities}">
+                       <div class="accordion" id="accordionExample">
+                           <div class="accordion-item">
+                               <h2 class="accordion-header" th:id="'heading-' + ${chapterEntity.id}">
+                                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                           th:data-bs-target="'#collapse-' + ${chapterEntity.id}"
+                                           aria-expanded="false" th:aria-controls="'collapse-' + ${chapterEntity.id}"
+                                           th:text="${chapterEntity.chapterName}">
+                                   </button>
+                               </h2>
+                               <div th:id="'collapse-' + ${chapterEntity.id}" class="accordion-collapse collapse" aria-labelledby="'heading-' + ${chapterEntity.id}"
+                                    data-bs-parent="#accordionExample">
+                                   <div class="accordion-body">
+                                       <ul  th:each="lessonEntity : ${chapterEntity.lessonEntities}">
+                                           <li class="nav-change deatailslesson">
+                                               <a th:text="${lessonEntity.lessonName}" th:href="@{/class-{classId}/{subjectName}/{ingredientsName}/{LessonName}(classId=${classId},subjectName=${subjectName},ingredientsName=${ingredientsName},LessonName=${lessonEntity.lessonName})}"></a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+        <div class="col-6 container content-between" th:each="lessonEntity : ${lessonEntity}">
+            <h4 th:text="${lessonEntity.lessonName}"></h4>
+            <h5 th:text="${lessonEntity.description}"></h5>
+            <div  >
+                <div th:each="contentLesson : ${contentLessons}">
+                    <div th:utext="${contentLesson.contents}"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 content-left"  th:each="topicEntities : ${topic6size}">
+            <div class="d-flex flex-row  mt-3 docx">
+                <i class="bi bi-house-fill me-2 ms-2"></i>
+                <a th:href="@{/class-{classId}/{subjectName}/{ingredientsName}/topicName={topicName}(classId=${classId},subjectName=${subjectName},ingredientsName=${ingredientsName},topicName=${topicEntities.topicName})}" th:text="${topicEntities.topicName}"></a>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+    <div>
+        <h3>Có thể bạn quan tâm</h3>
+        <div class="row">
+            <div class=" col-sm-12"  th:each="topicEntities : ${topicEntities}">
+                <div class="d-flex flex-row  mt-3 docx">
+                    <i class="bi bi-house-fill me-2 ms-2"></i>
+                    <a th:href="@{/class-{classId}/{subjectName}/{ingredientsName}/topicName={topicName}(classId=${classId},subjectName=${subjectName},ingredientsName=${ingredientsName},topicName=${topicEntities.topicName})}" th:text="${topicEntities.topicName}"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
